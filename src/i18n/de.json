@@ -11,10 +11,5 @@
     "links": {
         "home": "Home",
         "about": "Über uns"
-    },
-    "buttons": {
-        "change": "Ändern",
-        "loading": "Lädt...",
-        "delete": "Löschen"
     }
 }

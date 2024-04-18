@@ -1,4 +1,4 @@
-import { getRandomNumber, escapeRegExUrls } from "@/utils/utils.ts";
+import { getRandomNumber } from "@/utils/utils.ts";
 
 describe('Utils', () => {
 
@@ -15,14 +15,5 @@ describe('Utils', () => {
                 expect(randomNumber).toBeLessThanOrEqual(maxNumber);
             });
         }
-    });
-
-    test('Escape Special Characters URL', () => {
-        const url: string = 'https://example.com/path/to/(resource)/[resource]?query=string&number=123';
-        const expectedUrl: string = 'https://example\\.com/path/to/\\(resource\\)/\\[resource\\]\\?query=string&number=123';
-
-        const newUrl: string = escapeRegExUrls(url);
-
-        expect(newUrl).toMatch(expectedUrl);
     });
 });

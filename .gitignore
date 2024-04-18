@@ -2,7 +2,7 @@
 coverage
 node_modules
 /dist
-
+/vuejs-composition-api-v3-master
 
 # local env files
 .env.local
@@ -22,3 +22,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+*.zip

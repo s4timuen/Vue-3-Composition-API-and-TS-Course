@@ -1,8 +1,14 @@
 {
     "views": {
-        "home": {},
+        "home": {
+            "filter": {
+                "today": "Heute",
+                "week": "Woche",
+                "month": "Monat"
+            }
+        },
         "about": {
-            "title": "Über Uns Seite"
+            "title": "Über diese Seite"
         },
         "page-not-found": {
             "text": "Seite nicht gefunden"
@@ -10,6 +16,6 @@
     },
     "links": {
         "home": "Home",
-        "about": "Über uns"
+        "about": "Über Uns"
     }
 }

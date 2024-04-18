@@ -1,8 +1,14 @@
 {
     "views": {
-        "home": {},
+        "home": {
+            "filter": {
+                "today": "Today",
+                "week": "Week",
+                "month": "Month"
+            }
+        },
         "about": {
-            "title": "About Page"
+            "title": "About this Page"
         },
         "page-not-found": {
             "text": "Page Not Found"

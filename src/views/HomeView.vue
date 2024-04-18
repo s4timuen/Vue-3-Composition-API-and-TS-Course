@@ -1,11 +1,18 @@
 <template>
-    <div class="home__view" ref="root"></div>
+    <div class="home__view" ref="root">
+        <section>
+            <div class="container">
+                <TimelineComp />
+            </div>
+        </section>
+    </div>
 </template>
 
 <script setup lang="ts">
+import TimelineComp from '@/components/TimelineComp.vue';
 import { Ref, ref } from 'vue';
 
-const root: Ref<null> = ref(null);
+const root: Ref<HTMLElement | null> = ref(null);
 </script>
 
 <style scoped lang="scss">
@@ -13,7 +20,16 @@ const root: Ref<null> = ref(null);
     @include view;
 
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+
+    section {
+        width: 100%;
+
+        .container {
+            width: 100%;
+            padding-top: 1rem;
+        }
+    }
 }
 </style>

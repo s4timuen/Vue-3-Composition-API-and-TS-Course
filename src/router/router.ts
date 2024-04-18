@@ -1,23 +1,31 @@
-import { createWebHashHistory, createWebHistory, createMemoryHistory, createRouter, Router, RouterHistory, RouteRecordRaw } from 'vue-router';
+import {
+    createWebHashHistory,
+    createWebHistory,
+    createMemoryHistory,
+    createRouter,
+    Router,
+    RouterHistory,
+    RouteRecordRaw
+} from 'vue-router';
 
+import PageNotFound from '@/views/PageNotFound.vue';
 import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
-import PageNotFound from '@/views/PageNotFound.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        name: 'HomeView',
+        name: 'home-view',
         component: HomeView
     },
     {
         path: '/about',
-        name: 'AboutView',
+        name: 'about-view',
         component: AboutView
     },
     {
         path: '/:catchAll(.*)',
-        name: 'PageNotFound',
+        name: 'page-not-found',
         component: PageNotFound
     }
 ];

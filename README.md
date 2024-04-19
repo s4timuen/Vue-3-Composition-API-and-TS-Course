@@ -49,6 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Vue (Composition-API)
 
 ### Production
+- Luxon (Date and Time)
 - Pinia (Global State Management)
 - Vue-Router (Routing)
 - Vue-I18n (Internationalization)

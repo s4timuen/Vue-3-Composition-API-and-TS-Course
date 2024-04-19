@@ -10,6 +10,7 @@
     "test-cov": "vitest watch --environment happy-dom --coverage"
   },
   "dependencies": {
+    "luxon": "^3.4.4",
     "pinia": "^2.1.7",
     "uuid": "^9.0.1",
     "vue": "^3.2.13",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@testing-library/vue": "^8.0.3",
+    "@types/luxon": "^3.4.2",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",

@@ -52,6 +52,7 @@ function isActive(period: Period) {
         justify-content: center;
         gap: 2rem;
         width: 100%;
+        padding-top: 1rem;
 
         a {
             text-decoration: underline;

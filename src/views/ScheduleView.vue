@@ -1,17 +1,13 @@
 <template>
     <div class="schedule__view" ref="root">
-        <section>
-            <div class="container">
-                <Suspense>
-                    <template #default>
-                        <TimelineComp />
-                    </template>
-                    <template #fallback>
-                        <SuspenseText />
-                    </template>
-                </Suspense>
-            </div>
-        </section>
+        <Suspense>
+            <template #default>
+                <TimelineComp />
+            </template>
+            <template #fallback>
+                <SuspenseText />
+            </template>
+        </Suspense>
     </div>
 </template>
 
@@ -30,14 +26,5 @@ const root: Ref<HTMLElement | null> = ref(null);
     display: flex;
     align-items: start;
     justify-content: center;
-
-    section {
-        width: 100%;
-
-        .container {
-            width: 100%;
-            padding-top: 1rem;
-        }
-    }
 }
 </style>

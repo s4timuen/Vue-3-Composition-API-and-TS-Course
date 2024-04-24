@@ -9,19 +9,29 @@ import {
 } from 'vue-router';
 
 import PageNotFound from '@/views/PageNotFound.vue';
-import HomeView from '@/views/HomeView.vue';
+import ScheduleView from '@/views/ScheduleView.vue';
 import AboutView from '@/views/AboutView.vue';
+import NewPostView from '@/views/NewPostView.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        name: 'home-view',
-        component: HomeView
+        redirect: { name: 'schedule-view' }
+    },
+    {
+        path: '/schedule',
+        name: 'schedule-view',
+        component: ScheduleView
     },
     {
         path: '/about',
         name: 'about-view',
         component: AboutView
+    },
+    {
+        path: '/posts/new',
+        name: 'posts-new',
+        component: NewPostView
     },
     {
         path: '/:catchAll(.*)',

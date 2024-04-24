@@ -2,7 +2,10 @@
     <nav class="nav__container" ref="root">
         <ul class="nav__list">
             <li class="nav__item">
-                <router-link to="/" class="link">{{ $t("links.home") }}</router-link>
+                <router-link to="/schedule" class="link">{{ $t("links.schedule") }}</router-link>
+            </li>
+            <li class="nav__item">
+                <router-link to="/posts/new" class="link">{{ $t("links.new-post") }}</router-link>
             </li>
             <li class="nav__item">
                 <router-link to="/about" class="link">{{ $t("links.about") }}</router-link>

@@ -3,7 +3,7 @@
         <div class="selection">
             <a class="link" :class="{ '--active': isActive(period) }" v-for="(period, key) of  periods" :key="key"
                 @click="selectPeriod(period)">
-                {{ $t(`views.home.filter.${period}`) }}
+                {{ $t(`views.schedule.filter.${period}`) }}
             </a>
         </div>
         <div class="timeline__items">

@@ -1,5 +1,5 @@
 <template>
-    <div class="home__view" ref="root">
+    <div class="schedule__view" ref="root">
         <section>
             <div class="container">
                 <Suspense>
@@ -24,7 +24,7 @@ const root: Ref<HTMLElement | null> = ref(null);
 </script>
 
 <style scoped lang="scss">
-.home__view {
+.schedule__view {
     @include view;
 
     display: flex;

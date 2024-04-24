@@ -1,6 +1,6 @@
 {
     "views": {
-        "home": {
+        "schedule": {
             "filter": {
                 "today": "Heute",
                 "week": "Woche",
@@ -15,8 +15,9 @@
         }
     },
     "links": {
-        "home": "Home",
-        "about": "Über Uns"
+        "schedule": "Terminplan",
+        "about": "Über Uns",
+        "new-post": "Neuer Eintrag"
     },
     "suspense": {
         "loading": "Lädt..."

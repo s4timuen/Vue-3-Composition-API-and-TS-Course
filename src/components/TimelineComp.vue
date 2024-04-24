@@ -21,10 +21,11 @@ import { storeToRefs } from 'pinia';
 
 const root: Ref<HTMLElement | null> = ref(null);
 
-// period selection
 const postsStore = usePostsStore();
 const { selectedPeriod, filteredPosts } = storeToRefs(postsStore);
+postsStore.fetchPosts();
 
+// period selection
 function selectPeriod(period: Period): void {
     postsStore.setSelectedPeriod(period);
 }

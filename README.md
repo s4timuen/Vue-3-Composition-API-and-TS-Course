@@ -64,6 +64,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Sass (Styling)
 - ESLint (Linting)
 
+### API (could be mocked)
+- Express 
+- Cors 
+- TS-Node 
+
 ## Usefull Extensions for VSCode
 - Vue - Official
 - Auto Rename Tag

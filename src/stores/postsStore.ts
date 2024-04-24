@@ -2,10 +2,11 @@ import { StoreDefinition, defineStore } from 'pinia';
 import { DateTime } from 'luxon';
 import { TimelinePost } from '@/models/timelinePost.ts';
 import { Post } from '@/models/post';
-import { today, week, month } from '@/tests/models/mock_data/posts.ts'; // todo: only test data
 import { Period } from '@/models/period';
+import { delay } from '@/utils/utils'; // todo: test only
 
 interface PostsStoreState {
+    postsUrl: string,
     ids: Array<string>;
     all: Map<string, Post>;
     selectedPeriod: Period;
@@ -17,6 +18,7 @@ interface PostsStoreGetters {
 
 interface PostsStoreActions {
     setSelectedPeriod(period: Period): void;
+    fetchPosts(): Promise<void>;
 }
 
 const usePostsStore: StoreDefinition<
@@ -25,12 +27,9 @@ const usePostsStore: StoreDefinition<
     PostsStoreGetters,
     PostsStoreActions> = defineStore('postsStore', {
         state: (): PostsStoreState => ({
-            ids: [today.id, week.id, month.id],
-            all: new Map([
-                [today.id, today],
-                [week.id, week],
-                [month.id, month]
-            ]),
+            postsUrl: 'http://localhost:8090/posts',
+            ids: [],
+            all: new Map([]),
             selectedPeriod: 'today'
         }),
         getters: {
@@ -63,6 +62,25 @@ const usePostsStore: StoreDefinition<
         actions: {
             setSelectedPeriod(period: Period): void {
                 this.selectedPeriod = period;
+            },
+            async fetchPosts(): Promise<void> {
+                await fetch(this.postsUrl)
+                    .then(async res => { // todo: test only
+                        await delay();
+                        return res;
+                    })
+                    .then(async res => { return await res.json() as Array<Post> })
+                    .then(res => {
+                        const ids: Array<string> = [];
+                        const all = new Map<string, Post>();
+                        for (const post of res) {
+                            ids.push(post.id);
+                            all.set(post.id, post);
+                        }
+                        this.ids = ids;
+                        this.all = all;
+                    })
+                    .catch(error => { throw Error('Fetch posts', error) });
             }
         }
     });

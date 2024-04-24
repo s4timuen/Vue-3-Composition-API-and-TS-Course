@@ -17,5 +17,8 @@
     "links": {
         "home": "Home",
         "about": "Über Uns"
+    },
+    "suspense": {
+        "loading": "Lädt..."
     }
 }

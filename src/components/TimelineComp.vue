@@ -23,7 +23,7 @@ const root: Ref<HTMLElement | null> = ref(null);
 
 const postsStore = usePostsStore();
 const { selectedPeriod, filteredPosts } = storeToRefs(postsStore);
-postsStore.fetchPosts();
+await postsStore.fetchPosts(); // to use suspense in parent component
 
 // period selection
 function selectPeriod(period: Period): void {

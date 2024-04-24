@@ -91,15 +91,12 @@
     }
 }
 
-@mixin suspense-loading {
-    .suspense__loading {
+@mixin suspense {
+    .suspense__text {
         width: 100%;
         height: 100%;
-
-        p {
-            font-size: 2rem;
-        }
-
-        // todo: (optional) some loading bar
+        font-size: 2rem;
     }
+
+    // todo: (optional) some suspense loading bar, circle, etc.
 }

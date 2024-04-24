@@ -7,9 +7,7 @@
                         <TimelineComp />
                     </template>
                     <template #fallback>
-                        <div class="suspense__loading">
-                            <p>{{ $t('suspense.loading') }}</p>
-                        </div>
+                        <SuspenseText />
                     </template>
                 </Suspense>
             </div>
@@ -18,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import SuspenseText from '@/components/SuspenseText.vue';
 import TimelineComp from '@/components/TimelineComp.vue';
 import { Ref, ref } from 'vue';
 
@@ -27,7 +26,6 @@ const root: Ref<HTMLElement | null> = ref(null);
 <style scoped lang="scss">
 .home__view {
     @include view;
-    @include suspense-loading;
 
     display: flex;
     align-items: start;

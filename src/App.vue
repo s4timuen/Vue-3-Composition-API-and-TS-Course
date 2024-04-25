@@ -14,7 +14,20 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  @include custom-scrollbar;
+
+  &::-webkit-scrollbar {
+    margin-top: 3rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-top: 3rem;
+  }
+
+  font-family: Avenir,
+  Helvetica,
+  Arial,
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -25,7 +38,6 @@ body {
 
   width: 100vw;
   height: 100vh;
-  padding-top: 3rem;
 
   scroll-behavior: smooth;
   overflow-x: hidden;

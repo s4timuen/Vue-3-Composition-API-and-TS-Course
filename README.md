@@ -50,6 +50,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Production
 - Luxon (Date and Time)
+- Marked (Markdown)
 - Pinia (Global State Management)
 - Vue-Router (Routing)
 - Vue-I18n (Internationalization)

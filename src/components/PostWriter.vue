@@ -24,6 +24,7 @@ import { TimelinePost } from '@/models/timelinePost';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
+import debounce from 'lodash/debounce';
 
 const root: Ref<HTMLElement | null> = ref(null);
 const contentEditor: Ref<HTMLElement | null> = ref(null);
@@ -49,9 +50,13 @@ const marked = new Marked(
     })
 );
 
-watch(content, async (newContent) => {
-    parsedContent.value = await marked.parse(newContent);
-}, { immediate: true });
+watch(
+    content,
+    debounce(async (newContent) => {
+        parsedContent.value = await marked.parse(newContent);
+    }, 250),
+    { immediate: true }
+);
 
 async function handleInput(): Promise<void> {
     if (!contentEditor.value) {

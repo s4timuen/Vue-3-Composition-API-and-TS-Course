@@ -7,6 +7,11 @@
                 "month": "Month"
             }
         },
+        "post-writer": {
+            "title": "Title",
+            "editor": "Editor",
+            "preview": "Preview"
+        },
         "about": {
             "title": "About this Page"
         },

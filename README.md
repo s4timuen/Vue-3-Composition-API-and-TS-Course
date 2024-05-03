@@ -49,8 +49,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Vue (Composition-API)
 
 ### Production
+- Highlight.js (Markdown)
 - Luxon (Date and Time)
 - Marked (Markdown)
+- Marked-Highlight (Markdown)
 - Pinia (Global State Management)
 - Vue-Router (Routing)
 - Vue-I18n (Internationalization)

@@ -24,6 +24,9 @@
         "about": "Über Uns",
         "new-post": "Neuer Eintrag"
     },
+    "buttons": {
+        "save": "Speichern"
+    },
     "suspense": {
         "loading": "Lädt..."
     }

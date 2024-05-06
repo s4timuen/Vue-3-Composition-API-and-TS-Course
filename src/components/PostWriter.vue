@@ -1,6 +1,10 @@
 <template>
     <div class="post-writer" ref="root">
         <h3>{{ $t('links.new-post') }}</h3>
+        <button class="btn btn--save" @click="savePost()">
+            <i class="fa fa-plus"></i>
+            {{ $t('buttons.save') }}
+        </button>
         <div class="post-writer__title">
             <label for="post-writer-title">{{ $t('views.post-writer.title') }}</label>
             <input type="text" id="post-writer-title" v-model="title" />
@@ -25,6 +29,10 @@ import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
 import debounce from 'lodash/debounce';
+import { v4 as uuid } from 'uuid';
+import { DateTime } from 'luxon';
+import { usePostsStore } from '@/stores/postsStore';
+import { useRouter } from 'vue-router';
 
 const root: Ref<HTMLElement | null> = ref(null);
 const contentEditor: Ref<HTMLElement | null> = ref(null);
@@ -34,10 +42,14 @@ const props = defineProps<{
     post: TimelinePost;
 }>();
 
+const postsStore = usePostsStore();
+const router = useRouter();
+
 const title: Ref<string> = ref(props.post.title);
 const content: Ref<string> = ref(props.post.markdown);
 const parsedContent: Ref<string> = ref('');
 
+// todo: custom marked for import
 const marked = new Marked(
     {
         gfm: true,
@@ -65,6 +77,18 @@ async function handleInput(): Promise<void> {
     content.value = contentEditor.value.innerText;
 }
 
+function savePost(): void {
+    const newPost: TimelinePost = {
+        id: uuid(),
+        title: title.value,
+        created: DateTime.now(),
+        markdown: content.value
+    };
+    // todo: check mandatory fields
+    postsStore.createPost(newPost);
+    router.push('/');
+}
+
 onMounted(() => {
     if (!contentEditor.value) {
         throw Error('ContentEditor/Preview DOM note(s) was not found');
@@ -77,6 +101,9 @@ onMounted(() => {
 @import 'highlight.js/styles/atom-one-dark.css';
 
 .post-writer {
+    @include custom-scrollbar;
+    @include button;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -87,6 +114,10 @@ onMounted(() => {
 
     h3 {
         margin: 0;
+    }
+
+    .btn.btn--save i.fa.fa-plus {
+        font-size: 1.2rem;
     }
 
     .post-writer__title {
@@ -143,8 +174,6 @@ onMounted(() => {
 
         #post-writer-editor,
         #post-writer-preview {
-            @include custom-scrollbar;
-
             background-color: $color-white;
             border: 1px solid $color-gray;
             border-radius: 5px;
@@ -174,6 +203,14 @@ onMounted(() => {
             .post-writer__preview {
                 width: 100%;
             }
+        }
+    }
+
+    @media (min-width:800px) {
+        .btn.btn--save {
+            position: absolute;
+            top: 4rem;
+            right: 1rem;
         }
     }
 }

@@ -24,6 +24,9 @@
         "about": "About",
         "new-post": "New Post"
     },
+    "buttons": {
+        "save": "Save"
+    },
     "suspense": {
         "loading": "Loading..."
     }

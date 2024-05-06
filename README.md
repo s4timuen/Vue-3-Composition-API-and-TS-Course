@@ -71,6 +71,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Express 
 - Cors 
 - TS-Node 
+- Parse-Body
 
 ## Usefull Extensions for VSCode
 - Vue - Official

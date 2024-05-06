@@ -19,6 +19,7 @@ interface PostsStoreGetters {
 interface PostsStoreActions {
     setSelectedPeriod(period: Period): void;
     fetchPosts(): Promise<void>;
+    createPost(post: TimelinePost): Promise<void>;
 }
 
 const usePostsStore: StoreDefinition<
@@ -81,6 +82,18 @@ const usePostsStore: StoreDefinition<
                         this.all = all;
                     })
                     .catch(error => { throw Error('Fetch posts', error) });
+            },
+            async createPost(post: TimelinePost): Promise<void> {
+                const body = JSON.stringify({ ...post, created: post.created.toISO() });
+
+                await fetch(this.postsUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: body
+                })
+                    .catch(error => { throw Error('Post post', error) });
             }
         }
     });

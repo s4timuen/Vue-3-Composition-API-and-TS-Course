@@ -51,7 +51,6 @@ const title: Ref<string> = ref(props.post.title);
 const content: Ref<string> = ref(props.post.markdown);
 const parsedContent: Ref<string> = ref('');
 
-// todo: custom marked for import
 const marked = new Marked(
     {
         gfm: true,

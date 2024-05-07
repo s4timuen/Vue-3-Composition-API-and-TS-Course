@@ -1,5 +1,5 @@
 # web-app
-Course: [Vue JS 3: The Composition API (Inc Script Setup, TypeScript)]https://www.udemy.com/course/vuejs-3-the-composition-api/
+Course: [Vue JS 3: The Composition API (Inc Script Setup, TypeScript)](https://www.udemy.com/course/vuejs-3-the-composition-api/)
 
 ## Project setup
 ```

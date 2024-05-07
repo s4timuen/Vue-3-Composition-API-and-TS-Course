@@ -1,6 +1,7 @@
 <template>
     <div class="timeline" ref="root">
         <div class="selection">
+            <!-- todo: darker color and active underlined -->
             <a class="link" :class="{ '--active': isActive(period) }" v-for="(period, key) of  periods" :key="key"
                 @click="selectPeriod(period)">
                 {{ $t(`views.schedule.filter.${period}`) }}

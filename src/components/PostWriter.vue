@@ -33,6 +33,7 @@ import { v4 as uuid } from 'uuid';
 import { DateTime } from 'luxon';
 import { usePostsStore } from '@/stores/postsStore';
 import { useRouter } from 'vue-router';
+import { Composer, useI18n } from 'vue-i18n';
 
 const root: Ref<HTMLElement | null> = ref(null);
 const contentEditor: Ref<HTMLElement | null> = ref(null);
@@ -43,6 +44,7 @@ const props = defineProps<{
 }>();
 
 const postsStore = usePostsStore();
+const i18n: Composer = useI18n();
 const router = useRouter();
 
 const title: Ref<string> = ref(props.post.title);
@@ -78,15 +80,19 @@ async function handleInput(): Promise<void> {
 }
 
 function savePost(): void {
-    const newPost: TimelinePost = {
-        id: uuid(),
-        title: title.value,
-        created: DateTime.now(),
-        markdown: content.value
-    };
-    // todo: check mandatory fields
-    postsStore.createPost(newPost);
-    router.push('/');
+    if (title.value) {
+        const newPost: TimelinePost = {
+            id: uuid(),
+            title: title.value,
+            created: DateTime.now(),
+            markdown: content.value
+        };
+        postsStore.createPost(newPost);
+        router.push('/');
+    }
+    if (!title.value) {
+        alert(i18n.t('views.post-writer.alert-mandatory-field'));
+    }
 }
 
 onMounted(() => {

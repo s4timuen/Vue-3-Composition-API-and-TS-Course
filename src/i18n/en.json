@@ -10,7 +10,8 @@
         "post-writer": {
             "title": "Title",
             "editor": "Editor",
-            "preview": "Preview"
+            "preview": "Preview",
+            "alert-mandatory-field": "Please ad at least a title, before saving the post."
         },
         "about": {
             "title": "About this Page"

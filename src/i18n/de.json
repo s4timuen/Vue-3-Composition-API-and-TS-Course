@@ -10,7 +10,8 @@
         "post-writer": {
             "title": "Titel",
             "editor": "Editor",
-            "preview": "Vorschau"
+            "preview": "Vorschau",
+            "alert-mandatory-field": "Bitte gebe vor dem Speichern zumindest einen Titel ein."
         },
         "about": {
             "title": "Über diese Seite"

@@ -1,10 +1,12 @@
 <template>
+  <ModalComp />
   <NavBar />
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
+import ModalComp from '@/components/ModalComp.vue';
 </script>
 
 <style lang="scss">

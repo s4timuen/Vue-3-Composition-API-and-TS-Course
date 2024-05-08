@@ -25,6 +25,10 @@
         "about": "About",
         "new-post": "New Post"
     },
+    "auth": {
+        "login": "Login",
+        "signup": "Sign-Up"
+    },
     "buttons": {
         "save": "Save"
     },

@@ -25,6 +25,10 @@
         "about": "Über Uns",
         "new-post": "Neuer Eintrag"
     },
+    "auth": {
+        "login": "Login",
+        "signup": "Registrieren"
+    },
     "buttons": {
         "save": "Speichern"
     },

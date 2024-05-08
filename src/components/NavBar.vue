@@ -12,8 +12,8 @@
             </li>
         </ul>
         <ul class="auth__list">
-            <button class="btn btn--login" @click="showModal()">Login</button>
-            <button class="btn btn--signup">Signup</button>
+            <button class="btn btn--login" @click="showModal()">{{ $t('auth.login') }}</button>
+            <button class="btn btn--signup">{{ $t('auth.signup') }}</button>
         </ul>
         <select class="locale__selection" v-model="i18n.locale.value">
             <option v-for="(locale, key) in i18n.availableLocales" :key="key">{{ locale }}</option>
@@ -21,24 +21,29 @@
     </nav>
 
     <Teleport to="#modal">
-        <!-- todo: login & signup -->
+        <FormInput name="Username" v-model="username" />
     </Teleport>
 </template>
 
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
 import { Composer, useI18n } from 'vue-i18n';
-import { useModal } from '@/composables/modal.ts'
+import { useModal } from '@/composables/modal.ts';
+import FormInput from '@/components/FormInput.vue';
 
 const i18n: Composer = useI18n();
 const root: Ref<HTMLElement | null> = ref(null);
 
 const { showModal } = useModal();
+
+const username: Ref<string> = ref('');
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @include link;
 @include button;
+
+// todo: media query for small devices
 
 .nav__container {
     display: flex;
@@ -79,5 +84,4 @@ const { showModal } = useModal();
     border-radius: 5px;
     padding: 0.25rem;
 }
-
-// todo: small devices</style>
+</style>
